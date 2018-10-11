@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.erick.homedashboard">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".com.ipn.acceso.controller.SplashScreenController">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".com.ipn.pagos.controller.PagoController" />
+        <activity android:name=".com.ipn.notas.controller.NotaController" />
+        <activity android:name=".com.ipn.notificaciones.controller.NotificacionController" />
+        <activity android:name=".com.ipn.citas.controller.CitasController" />
+        <activity android:name=".com.ipn.cuenta.controller.MiCuentaController" />
+        <activity android:name=".com.ipn.pagos.service.PagoService" />
+        <activity android:name=".com.ipn.home.controller.AboutController" />
+        <activity android:name=".com.ipn.acceso.controller.LoginController" />
+        <activity android:name=".com.ipn.acceso.controller.RegistrarController" />
+        <activity
+            android:name=".com.ipn.home.controller.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".com.ipn.servicios.controller.ServiciosController" />
+        <activity android:name=".AdjuntarPago"></activity>
+    </application>
+
+</manifest>

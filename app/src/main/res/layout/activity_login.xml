@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/login_id"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:background="@color/colorPrimaryDark">
+        </LinearLayout>
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <EditText
+                android:id="@+id/id_mail"
+                android:drawableStart="@drawable/ic_email_black_24dp"
+                android:hint="correo@gmail.com"
+                android:padding="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:inputType="textEmailAddress"
+                android:layout_gravity="center"
+                android:textColor="@color/darkBlue"/>
+
+            <EditText
+                android:id="@+id/id_password"
+                android:drawableStart="@drawable/ic_lock_black_24dp"
+                android:layout_marginTop="10dp"
+                android:inputType="textPassword"
+                android:hint="Contraseña"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:padding="10dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:textColor="@color/darkBlue"/>
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:text="Ingresar"
+                android:textColor="@color/white"
+                android:background="@drawable/button_style"
+                android:layout_marginTop="25dp"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content" />
+            <TextView
+                android:id="@+id/registrarse_id"
+                android:layout_marginTop="30dp"
+                android:layout_gravity="center"
+                android:textSize="18dp"
+                android:gravity="center"
+                android:layout_width="300dp"
+                android:layout_height="wrap_content"
+                android:text="¿No tienes una cuenta? crea una aquí"/>
+        </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

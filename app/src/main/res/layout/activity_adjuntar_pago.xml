@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".AdjuntarPago"
+android:background="#fcfcfc">
+
+<android.support.design.widget.AppBarLayout
+    android:id="@+id/app_bar_id"
+    android:layout_width="match_parent"
+    android:layout_height="300dp"
+    android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+    <android.support.design.widget.CollapsingToolbarLayout
+        android:id="@+id/collapsing_bar_id"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:contentScrim="?attr/colorPrimary"
+        app:expandedTitleMarginEnd="64dp"
+        app:expandedTitleMarginStart="48dp"
+        app:layout_scrollFlags="exitUntilCollapsed|scroll"
+        app:title="Gestionar Pagos">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar_id"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.CollapsingToolbarLayout>
+</android.support.design.widget.AppBarLayout>
+<android.support.v4.widget.NestedScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+    <LinearLayout
+        android:id="@+id/wrapper_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".AdjuntarPago"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:gravity="center">
+
+        <LinearLayout
+            android:clipToPadding="false"
+            android:gravity="center"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:orientation="horizontal">
+            <android.support.v7.widget.CardView
+                android:id="@+id/pagos_card_id"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layout_height="190dp"
+                android:layout_margin="10dp"
+                android:layout_width="160dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:background="@drawable/purple_circle"
+                        android:layout_height="64dp"
+                        android:layout_width="64dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_attach_file_black_24dp"/>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        android:text="Adjuntar Archivo"/>
+                    <View
+                        android:background="@color/lightgray"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="Aquí puedes agregar un archivo de pago local."/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+            <android.support.v7.widget.CardView
+                android:id="@+id/notas_card_id"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:clickable="true"
+                android:layout_height="190dp"
+                android:layout_margin="10dp"
+                android:layout_width="160dp">
+                <LinearLayout
+                    android:gravity="center"
+                    android:layout_height="match_parent"
+                    android:layout_width="match_parent"
+                    android:orientation="vertical">
+                    <ImageView
+                        android:background="@drawable/green_circle"
+                        android:layout_height="64dp"
+                        android:layout_width="64dp"
+                        android:padding="10dp"
+                        android:src="@drawable/ic_camera_alt_black_24dp"/>
+                    <TextView
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:textStyle="bold"
+                        android:text="Capturar Archivo"/>
+                    <View
+                        android:background="@color/lightgray"
+                        android:layout_height="1dp"
+                        android:layout_margin="10dp"
+                        android:layout_width="match_parent"/>
+                    <TextView
+                        android:gravity="center"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:padding="5dp"
+                        android:textColor="@android:color/darker_gray"
+                        android:text="Aquí podrás capturar tu archivo de pago."/>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+        </LinearLayout>
+    </LinearLayout>
+</android.support.v4.widget.NestedScrollView>
+</android.support.design.widget.CoordinatorLayout>
