@@ -12,56 +12,80 @@
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="200dp"
-            android:background="@color/colorPrimaryDark">
+            android:background="@drawable/side_nav_bar">
         </LinearLayout>
-        <LinearLayout
-            android:orientation="vertical"
+        <ProgressBar
+            android:id="@+id/login_progress"
+            style="?android:attr/progressBarStyleLarge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:visibility="gone" />
+        <ScrollView
+            android:id="@+id/login_form"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-            <EditText
-                android:id="@+id/id_mail"
-                android:drawableStart="@drawable/ic_email_black_24dp"
-                android:hint="correo@gmail.com"
-                android:padding="10dp"
-                android:layout_marginTop="40dp"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:inputType="textEmailAddress"
-                android:layout_gravity="center"
-                android:textColor="@color/darkBlue"/>
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-            <EditText
-                android:id="@+id/id_password"
-                android:drawableStart="@drawable/ic_lock_black_24dp"
-                android:layout_marginTop="10dp"
-                android:inputType="textPassword"
-                android:hint="Contraseña"
-                android:gravity="center"
-                android:layout_gravity="center"
-                android:padding="10dp"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:textColor="@color/darkBlue"/>
-            <Button
-                android:id="@+id/btn_login"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="Ingresar"
-                android:textColor="@color/white"
-                android:background="@drawable/button_style"
-                android:layout_marginTop="25dp"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/registrarse_id"
-                android:layout_marginTop="30dp"
-                android:layout_gravity="center"
-                android:textSize="18dp"
-                android:gravity="center"
-                android:layout_width="300dp"
-                android:layout_height="wrap_content"
-                android:text="¿No tienes una cuenta? crea una aquí"/>
-        </LinearLayout>
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/float_label_user_id"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <EditText
+                        android:id="@+id/id_mail"
+                        android:drawableStart="@drawable/ic_email_black_24dp"
+                        android:hint="correo@gmail.com"
+                        android:padding="10dp"
+                        android:layout_marginTop="40dp"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:inputType="textEmailAddress"
+                        android:layout_gravity="center"
+                        android:textColor="@color/darkBlue"/>
+                </android.support.design.widget.TextInputLayout>
+
+                <android.support.design.widget.TextInputLayout
+                    android:id="@+id/float_label_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <EditText
+                        android:id="@+id/id_password"
+                        android:drawableStart="@drawable/ic_lock_black_24dp"
+                        android:layout_marginTop="10dp"
+                        android:inputType="textPassword"
+                        android:hint="Contraseña"
+                        android:gravity="center"
+                        android:layout_gravity="center"
+                        android:padding="10dp"
+                        android:layout_width="300dp"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/darkBlue"/>
+                </android.support.design.widget.TextInputLayout>
+                <Button
+                    android:id="@+id/btn_login"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:text="Ingresar"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_style"
+                    android:layout_marginTop="25dp"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content" />
+                <TextView
+                    android:id="@+id/registrarse_id"
+                    android:layout_marginTop="30dp"
+                    android:layout_gravity="center"
+                    android:textSize="18dp"
+                    android:gravity="center"
+                    android:layout_width="300dp"
+                    android:layout_height="wrap_content"
+                    android:text="¿No tienes una cuenta? crea una aquí"/>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 </RelativeLayout>
