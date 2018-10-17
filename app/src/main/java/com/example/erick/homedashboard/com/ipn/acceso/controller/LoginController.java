@@ -20,7 +20,14 @@ import com.example.erick.homedashboard.R;
 import com.example.erick.homedashboard.com.ipn.acceso.api.LoginApiService;
 import com.example.erick.homedashboard.com.ipn.acceso.modelo.Usuario;
 import com.example.erick.homedashboard.com.ipn.acceso.response.LoginResponse;
+import com.example.erick.homedashboard.com.ipn.home.controller.BibliotecaActivity;
+import com.example.erick.homedashboard.com.ipn.home.controller.CajeroActivity;
+import com.example.erick.homedashboard.com.ipn.home.controller.CelexActivity;
+import com.example.erick.homedashboard.com.ipn.home.controller.ContadorActivity;
+import com.example.erick.homedashboard.com.ipn.home.controller.ImpresionesActivity;
 import com.example.erick.homedashboard.com.ipn.home.controller.MainActivity;
+import com.example.erick.homedashboard.com.ipn.home.controller.SdActivity;
+import com.example.erick.homedashboard.com.ipn.home.controller.SubdirectorActivity;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.Numbers;
 import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
@@ -118,7 +125,6 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View v) {
         Intent intent;
-
         switch (v.getId()){
             case R.id.btn_login:
                 if (isOnline()) {
@@ -126,11 +132,59 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
                 } else {
                     showLoginError(getString(R.string.error_network));
                 }
-                intent = new Intent(this, MainActivity.class);
-                startActivity(intent);
+
+                redireccionarPerfil(8);
                 break;
             case R.id.registrarse_id:
                 intent = new Intent(this, RegistrarController.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void redireccionarPerfil(Integer perfil) {
+        Intent intent;
+        switch (perfil){
+            case 1:
+                intent = new Intent(this, SubdirectorActivity.class);
+                startActivity(intent);
+                break;
+            case 2:
+                intent = new Intent(this, CelexActivity.class);
+                startActivity(intent);
+                break;
+            case 3:
+                intent = new Intent(this, SdActivity.class);
+                startActivity(intent);
+                break;
+            case 4:
+                intent = new Intent(this, BibliotecaActivity.class);
+                startActivity(intent);
+                break;
+            case 5:
+                intent = new Intent(this, ImpresionesActivity.class);
+                startActivity(intent);
+                break;
+            case 6:
+                intent = new Intent(this, CajeroActivity.class);
+                startActivity(intent);
+                break;
+            case 7:
+                intent = new Intent(this, ContadorActivity.class);
+                startActivity(intent);
+                break;
+            case 8:
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case 9:
+                intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case 10:
+                intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
                 break;
             default:

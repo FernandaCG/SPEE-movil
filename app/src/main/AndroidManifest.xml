@@ -32,7 +32,35 @@
         <activity android:name=".com.ipn.acceso.controller.LoginController" />
         <activity android:name=".com.ipn.acceso.controller.RegistrarController" />
         <activity
+            android:name=".com.ipn.home.controller.SubdirectorActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".com.ipn.home.controller.BibliotecaActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
             android:name=".com.ipn.home.controller.MainActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".com.ipn.home.controller.CelexActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".com.ipn.home.controller.CajeroActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".com.ipn.home.controller.ContadorActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".com.ipn.home.controller.ImpresionesActivity"
+            android:label="@string/title_activity_main"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name=".com.ipn.home.controller.SdActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
         <activity android:name=".com.ipn.servicios.controller.ServiciosController" />
