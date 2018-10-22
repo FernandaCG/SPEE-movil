@@ -96,9 +96,9 @@ android:background="#fcfcfc">
             android:id="@+id/notas_list_id"
             android:foreground="?android:attr/selectableItemBackground"
             android:clickable="true"
-            android:layout_height="190dp"
+            android:layout_height="400dp"
             android:layout_margin="10dp"
-            android:layout_width="330dp">
+            android:layout_width="333dp">
             <LinearLayout
                 android:clipToPadding="false"
                 android:gravity="center"

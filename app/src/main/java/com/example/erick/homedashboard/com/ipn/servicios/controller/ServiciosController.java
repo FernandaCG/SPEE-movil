@@ -5,9 +5,13 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import com.example.erick.homedashboard.AdjuntarPago;
+import android.content.Intent;
 
 import com.example.erick.homedashboard.R;
 import com.example.erick.homedashboard.com.ipn.adapters.CatalogoServiciosAdapter;
+import com.example.erick.homedashboard.com.ipn.adapters.OnItemClickListener;
 import com.example.erick.homedashboard.com.ipn.servicios.api.CatalogoApiService;
 import com.example.erick.homedashboard.com.ipn.servicios.modelo.CatalogoServicios;
 import com.example.erick.homedashboard.com.ipn.servicios.response.CatalogoServiciosResponse;
@@ -21,7 +25,7 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 
-public class ServiciosController extends AppCompatActivity {
+public class ServiciosController extends AppCompatActivity implements OnItemClickListener {
 
     private static final String TAG = "SERVICIOS: ";
 
@@ -45,8 +49,9 @@ public class ServiciosController extends AppCompatActivity {
         offset = 0;
         consumeService(service.obtenerCatalogoServicios(20, offset));
 
-        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_id);
+        recyclerView = (RecyclerView) findViewById(R.id.recyclerview_servicios_id);
         listaServiciosAdapter = new CatalogoServiciosAdapter(this);
+        listaServiciosAdapter.setClickListener(this);
         recyclerView.setAdapter(listaServiciosAdapter);
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
@@ -73,6 +78,14 @@ public class ServiciosController extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    @Override
+    public void onClick(View view, int position) {
+        Log.i(TAG, " Llegamos al click.");
+        Intent intent;
+        intent = new Intent(this, AdjuntarPago.class);
+        startActivity(intent);
     }
 
     public void consumeService(Call respuestaCall) {

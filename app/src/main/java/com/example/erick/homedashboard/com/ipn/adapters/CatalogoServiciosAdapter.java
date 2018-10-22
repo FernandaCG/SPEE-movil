@@ -1,15 +1,13 @@
 package com.example.erick.homedashboard.com.ipn.adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.TextView;
+import android.util.Log;
 
-import com.example.erick.homedashboard.AdjuntarPago;
 import com.example.erick.homedashboard.R;
 import com.example.erick.homedashboard.com.ipn.servicios.modelo.CatalogoServicios;
 
@@ -18,8 +16,11 @@ import java.util.List;
 
 public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServiciosAdapter.ViewHolder> {
 
+    private static final String TAG = "SERVIOS ADAPTER: ";
+
     private List<CatalogoServicios> items;
     private Context context;
+    private OnItemClickListener clickListener;
 
     public CatalogoServiciosAdapter(Context context) {
         this.context = context;
@@ -32,7 +33,11 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
                 from(parent.getContext()).
                 inflate(R.layout.item_catalogo_servicios, parent, false);
        //agregar onclick para redirigir a AdjuntarPago.class activity
-        return new ViewHolder(itemView);
+               return new ViewHolder(itemView);
+    }
+
+    public void setClickListener(OnItemClickListener itemClickListener) {
+        this.clickListener = itemClickListener;
     }
 
 
@@ -51,13 +56,22 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
         notifyDataSetChanged();
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
 
-        TextView vTitle;
+        private TextView vTitle;
 
         public ViewHolder(View v) {
             super(v);
             vTitle = v.findViewById(R.id.concepto_id);
+             itemView.setOnClickListener(this);
         }
+
+        @Override
+        public void onClick(View view) {
+            if (clickListener != null)
+                clickListener.onClick(view, getAdapterPosition());
+        }
+
+
     }
 }

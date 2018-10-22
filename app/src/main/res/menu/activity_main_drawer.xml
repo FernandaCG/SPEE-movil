@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_pagos"
             android:icon="@drawable/ic_attach_money_black_24dp"
-            android:title="Pagos" />
+            android:title="Gestinar Pagos" />
         <item
             android:id="@+id/nav_notas"
             android:icon="@drawable/ic_note_black_24dp"

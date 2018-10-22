@@ -13,6 +13,6 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:textColor="@color/blueDark"
-        android:text="Bienvenido al Sistema de Pagos Electrónicos ESCOM SPEE, aquí podrás administrar tus pagos emitidos..."/>
+        android:text="Bienvenido al Sistema de Pagos Electrónicos ESCOM SPEE."/>
 
 </android.support.constraint.ConstraintLayout>
