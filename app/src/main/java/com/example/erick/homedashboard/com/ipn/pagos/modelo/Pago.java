@@ -1,19 +1,26 @@
 package com.example.erick.homedashboard.com.ipn.pagos.modelo;
 
-public class Pago {
+import java.util.Date;
 
-    private int id;
+public class Pago {
 
     private String name;
 
-    private String url;
+    private Integer id;
 
-    private int estado;
+    private Date fechaEnvio;
 
-    public int getId() {
-        String[] urlPartes = url.split("/");
-        return Integer.parseInt(urlPartes[urlPartes.length - 1]);
-    }
+    private Integer idTipoComprobante;
+
+    private Integer idCatalogoServicio;
+
+    private Integer idEstadoPago;
+
+    private Integer idUsuario;
+
+    private Integer idCarpeta;
+
+    private String folioOperacion;
 
     public void setId(int id) {
         this.id = id;
@@ -27,19 +34,68 @@ public class Pago {
         this.name = name;
     }
 
-    public int getEstado() {
-        return estado;
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setEstado(int estado) {
-        this.estado = estado;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
-    public String getUrl() {
-        return url;
+    public Date getFechaEnvio() {
+        return fechaEnvio;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
+    public void setFechaEnvio(Date fechaEnvio) {
+        this.fechaEnvio = fechaEnvio;
+    }
+
+    public Integer getIdTipoComprobante() {
+        return idTipoComprobante;
+    }
+
+    public void setIdTipoComprobante(Integer idTipoComprobante) {
+        this.idTipoComprobante = idTipoComprobante;
+    }
+
+    public Integer getIdCatalogoServicio() {
+        return idCatalogoServicio;
+    }
+
+    public void setIdCatalogoServicio(Integer idCatalogoServicio) {
+        this.idCatalogoServicio = idCatalogoServicio;
+    }
+
+    public Integer getIdEstadoPago() {
+        return idEstadoPago;
+    }
+
+    public void setIdEstadoPago(Integer idEstadoPago) {
+        this.idEstadoPago = idEstadoPago;
+    }
+
+    public Integer getIdUsuario() {
+        return idUsuario;
+    }
+
+    public void setIdUsuario(Integer idUsuario) {
+        this.idUsuario = idUsuario;
+    }
+
+    public Integer getIdCarpeta() {
+        return idCarpeta;
+    }
+
+    public void setIdCarpeta(Integer idCarpeta) {
+        this.idCarpeta = idCarpeta;
+    }
+
+    public String getFolioOperacion() {
+        return folioOperacion;
+    }
+
+    public void setFolioOperacion(String folioOperacion) {
+        this.folioOperacion = folioOperacion;
     }
 }

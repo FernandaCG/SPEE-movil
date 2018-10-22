@@ -14,20 +14,17 @@ public class PagoService extends AppCompatActivity implements View.OnClickListen
 
     private CardView pagosCard;
     private CardView notasCard;
-    private CardView adjuntarCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        pagosCard= (CardView) findViewById(R.id.pagos_card_id);
-        notasCard = (CardView) findViewById(R.id.notas_card_id);
-        adjuntarCard = (CardView) findViewById(R.id.adjuntar_card_id);
+        pagosCard = findViewById(R.id.pagos_card_id);
+        notasCard = findViewById(R.id.notas_card_id);
 
         pagosCard.setOnClickListener(this);
         notasCard.setOnClickListener(this);
-        adjuntarCard.setOnClickListener(this);
     }
 
     @Override
@@ -40,10 +37,6 @@ public class PagoService extends AppCompatActivity implements View.OnClickListen
                 startActivity(intent);
                 break;
             case R.id.notas_card_id:
-                intent = new Intent(this, NotaController.class);
-                startActivity(intent);
-                break;
-            case R.id.adjuntar_card_id:
                 intent = new Intent(this, NotaController.class);
                 startActivity(intent);
                 break;

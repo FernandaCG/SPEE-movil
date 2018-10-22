@@ -172,52 +172,6 @@
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
             </LinearLayout>
-
-            <LinearLayout
-                android:clipToPadding="false"
-                android:gravity="center"
-                android:layout_height="wrap_content"
-                android:layout_width="match_parent"
-                android:orientation="horizontal">
-                <android.support.v7.widget.CardView
-                    android:id="@+id/adjuntar_card_id"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:layout_height="190dp"
-                    android:layout_margin="10dp"
-                    android:layout_width="160dp">
-                    <LinearLayout
-                        android:gravity="center"
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:background="@drawable/yellow_circle"
-                            android:layout_height="64dp"
-                            android:layout_width="64dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_camera_alt_black_24dp"/>
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="Adjuntar Pago"/>
-                        <View
-                            android:background="@color/lightgray"
-                            android:layout_height="1dp"
-                            android:layout_margin="10dp"
-                            android:layout_width="match_parent"/>
-                        <TextView
-                            android:gravity="center"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"
-                            android:text="Aquí podrás adjuntar tus pagos bancarios."/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-            </LinearLayout>
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>
