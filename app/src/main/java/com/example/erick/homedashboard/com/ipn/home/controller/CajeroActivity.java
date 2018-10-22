@@ -16,7 +16,10 @@ import com.example.erick.homedashboard.com.ipn.citas.controller.CitasController;
 import com.example.erick.homedashboard.com.ipn.cuenta.controller.MiCuentaController;
 import com.example.erick.homedashboard.com.ipn.notas.controller.NotaController;
 import com.example.erick.homedashboard.com.ipn.notificaciones.controller.NotificacionController;
+import com.example.erick.homedashboard.com.ipn.pagos.controller.HistorialPagoController;
+import com.example.erick.homedashboard.com.ipn.pagos.controller.PagoController;
 import com.example.erick.homedashboard.com.ipn.pagos.service.PagoService;
+import com.example.erick.homedashboard.com.ipn.reportes.controller.ReportesController;
 import com.example.erick.homedashboard.com.ipn.servicios.controller.ServiciosController;
 
 public class CajeroActivity extends AppCompatActivity
@@ -25,11 +28,11 @@ public class CajeroActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_cajero);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_cajero);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -41,7 +44,7 @@ public class CajeroActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_cajero);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -72,22 +75,16 @@ public class CajeroActivity extends AppCompatActivity
         int id = item.getItemId();
         Intent intent;
 
-        if (id == R.id.nav_pagos) {
-            intent = new Intent(this, PagoService.class);
+        if (id == R.id.nav_caj_pagos) {
+            intent = new Intent(this, PagoController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_servicios) {
-            intent = new Intent(this, ServiciosController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_notas) {
-            intent = new Intent(this, NotaController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_citas) {
-            intent = new Intent(this, CitasController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_notificaciones) {
+        } else if (id == R.id.nav_caj_notificaciones) {
             intent = new Intent(this, NotificacionController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_mi_cuenta) {
+        }  else if (id == R.id.nav_caj_historial) {
+            intent = new Intent(this, HistorialPagoController.class);
+            startActivity(intent);
+        }else if (id == R.id.nav_mi_cuenta) {
             intent = new Intent(this, MiCuentaController.class);
             startActivity(intent);
         } else if (id == R.id.nav_acerca) {
@@ -97,7 +94,7 @@ public class CajeroActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_cajero);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

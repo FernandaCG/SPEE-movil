@@ -5,12 +5,12 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_pagos"
+            android:id="@+id/nav_impr_pagos"
             android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Pagos Autorizados" />
 
         <item
-            android:id="@+id/nav_notas"
+            android:id="@+id/nav_impr_nota"
             android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Notas de Pago" />
     </group>

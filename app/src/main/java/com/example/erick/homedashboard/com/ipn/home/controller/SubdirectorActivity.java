@@ -17,6 +17,8 @@ import com.example.erick.homedashboard.com.ipn.cuenta.controller.MiCuentaControl
 import com.example.erick.homedashboard.com.ipn.notas.controller.NotaController;
 import com.example.erick.homedashboard.com.ipn.notificaciones.controller.NotificacionController;
 import com.example.erick.homedashboard.com.ipn.pagos.service.PagoService;
+import com.example.erick.homedashboard.com.ipn.permisos.controller.PermisosController;
+import com.example.erick.homedashboard.com.ipn.reportes.controller.ReportesController;
 import com.example.erick.homedashboard.com.ipn.servicios.controller.ServiciosController;
 
 public class SubdirectorActivity extends AppCompatActivity
@@ -72,11 +74,11 @@ public class SubdirectorActivity extends AppCompatActivity
         int id = item.getItemId();
         Intent intent;
 
-        if (id == R.id.nav_pagos) {
-            intent = new Intent(this, PagoService.class);
+        if (id == R.id.nav_sub_reportes) {
+            intent = new Intent(this, ReportesController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_servicios) {
-            intent = new Intent(this, ServiciosController.class);
+        } else if (id == R.id.nav_sub_permisos) {
+            intent = new Intent(this, PermisosController.class);
             startActivity(intent);
         } else if (id == R.id.nav_notificaciones) {
             intent = new Intent(this, NotificacionController.class);
@@ -91,7 +93,7 @@ public class SubdirectorActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_subdirector);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

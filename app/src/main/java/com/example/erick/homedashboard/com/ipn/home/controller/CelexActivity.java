@@ -16,6 +16,7 @@ import com.example.erick.homedashboard.com.ipn.citas.controller.CitasController;
 import com.example.erick.homedashboard.com.ipn.cuenta.controller.MiCuentaController;
 import com.example.erick.homedashboard.com.ipn.notas.controller.NotaController;
 import com.example.erick.homedashboard.com.ipn.notificaciones.controller.NotificacionController;
+import com.example.erick.homedashboard.com.ipn.pagos.controller.PagoController;
 import com.example.erick.homedashboard.com.ipn.pagos.service.PagoService;
 import com.example.erick.homedashboard.com.ipn.servicios.controller.ServiciosController;
 
@@ -25,11 +26,11 @@ public class CelexActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_celex);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_celex);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -41,7 +42,7 @@ public class CelexActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_celex);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -72,20 +73,8 @@ public class CelexActivity extends AppCompatActivity
         int id = item.getItemId();
         Intent intent;
 
-        if (id == R.id.nav_pagos) {
-            intent = new Intent(this, PagoService.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_servicios) {
-            intent = new Intent(this, ServiciosController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_notas) {
-            intent = new Intent(this, NotaController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_citas) {
-            intent = new Intent(this, CitasController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_notificaciones) {
-            intent = new Intent(this, NotificacionController.class);
+        if (id == R.id.nav_pagos_autorizados) {
+            intent = new Intent(this, PagoController.class);
             startActivity(intent);
         } else if (id == R.id.nav_mi_cuenta) {
             intent = new Intent(this, MiCuentaController.class);
@@ -97,7 +86,7 @@ public class CelexActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_celex);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

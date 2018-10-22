@@ -5,13 +5,18 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_pagos"
+            android:id="@+id/nav_caj_pagos"
             android:icon="@drawable/ic_attach_money_black_24dp"
             android:title="Autorización de Pagos" />
         <item
-            android:id="@+id/nav_notificaciones"
+            android:id="@+id/nav_caj_notificaciones"
             android:icon="@drawable/ic_notifications_black_24dp"
             android:title="Notificaciones" />
+        <item
+        android:id="@+id/nav_caj_historial"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="Historial" />
+
     </group>
 
     <item android:title="Cuenta">

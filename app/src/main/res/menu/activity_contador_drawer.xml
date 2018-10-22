@@ -5,11 +5,11 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_servicios"
+            android:id="@+id/nav_cont_reportes"
             android:icon="@drawable/ic_list_black_24dp"
             android:title="Reportes" />
         <item
-            android:id="@+id/nav_notificaciones"
+            android:id="@+id/nav_cont_notificaciones"
             android:icon="@drawable/ic_notifications_black_24dp"
             android:title="Notificaciones" />
     </group>

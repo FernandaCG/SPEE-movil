@@ -6,7 +6,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
-import com.example.erick.homedashboard.AdjuntarPago;
+import com.example.erick.homedashboard.com.ipn.pagos.controller.AdjuntarPago;
 import android.content.Intent;
 
 import com.example.erick.homedashboard.R;

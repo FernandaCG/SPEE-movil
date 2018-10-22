@@ -5,15 +5,19 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_servicios"
+            android:id="@+id/nav_sd_pagos"
             android:icon="@drawable/ic_list_black_24dp"
-            android:title="Pagos" />
+            android:title="Pagos Autorizados" />
         <item
-            android:id="@+id/nav_citas"
+            android:id="@+id/nav_sd_citas"
             android:icon="@drawable/ic_list_black_24dp"
             android:title="Citas Agendadas" />
         <item
-            android:id="@+id/nav_notificaciones"
+            android:id="@+id/nav_sd_notas"
+            android:icon="@drawable/ic_list_black_24dp"
+            android:title="Notas" />
+        <item
+            android:id="@+id/nav_sd_notificaciones"
             android:icon="@drawable/ic_notifications_black_24dp"
             android:title="Notificaciones" />
     </group>

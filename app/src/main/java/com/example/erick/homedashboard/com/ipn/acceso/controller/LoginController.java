@@ -10,7 +10,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -30,7 +29,6 @@ import com.example.erick.homedashboard.com.ipn.home.controller.SdActivity;
 import com.example.erick.homedashboard.com.ipn.home.controller.SubdirectorActivity;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.Numbers;
-import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
 
 import retrofit2.Call;
 import retrofit2.Callback;

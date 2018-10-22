@@ -64,7 +64,10 @@
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme" />
         <activity android:name=".com.ipn.servicios.controller.ServiciosController" />
-        <activity android:name=".AdjuntarPago"></activity>
+        <activity android:name=".com.ipn.pagos.controller.AdjuntarPago" ></activity>
+        <activity android:name=".com.ipn.reportes.controller.ReportesController"></activity>
+        <activity android:name=".com.ipn.permisos.controller.PermisosController"></activity>
+        <activity android:name=".com.ipn.pagos.controller.HistorialPagoController"></activity>
     </application>
 
 </manifest>

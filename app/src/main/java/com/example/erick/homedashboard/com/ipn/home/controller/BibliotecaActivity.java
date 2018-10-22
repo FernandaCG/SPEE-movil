@@ -25,11 +25,11 @@ public class BibliotecaActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_main_biblioteca);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_biblioteca);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -41,7 +41,7 @@ public class BibliotecaActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_biblioteca);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -72,20 +72,8 @@ public class BibliotecaActivity extends AppCompatActivity
         int id = item.getItemId();
         Intent intent;
 
-        if (id == R.id.nav_pagos) {
+        if (id == R.id.nav_bib_pagos) {
             intent = new Intent(this, PagoService.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_servicios) {
-            intent = new Intent(this, ServiciosController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_notas) {
-            intent = new Intent(this, NotaController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_citas) {
-            intent = new Intent(this, CitasController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_notificaciones) {
-            intent = new Intent(this, NotificacionController.class);
             startActivity(intent);
         } else if (id == R.id.nav_mi_cuenta) {
             intent = new Intent(this, MiCuentaController.class);
@@ -97,7 +85,7 @@ public class BibliotecaActivity extends AppCompatActivity
 
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_biblioteca);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }

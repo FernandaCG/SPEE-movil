@@ -44,7 +44,6 @@ public class PagoController extends AppCompatActivity {
         aptoParaCargar = true;
         offset = 0;
         consumeService(service.obtenerListaPagos(20, offset));
-       // service.agreagarPago();
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_id);
         listaPagosAdapter = new PagosAdapter(this);
