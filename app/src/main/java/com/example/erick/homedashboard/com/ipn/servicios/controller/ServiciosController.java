@@ -96,7 +96,6 @@ public class ServiciosController extends AppCompatActivity implements OnItemClic
                 if(response.isSuccessful()) {
                     ArrayList<CatalogoServicios> responseList = response.body().getResults();
                     listaServiciosAdapter.agregarListaServicios(responseList);
-                    Log.e(TAG, " onResponseSuccess: " + responseList.get(1).getName());
                 } else {
                     Log.e(TAG, " onResponseError: " + response.errorBody());
                 }

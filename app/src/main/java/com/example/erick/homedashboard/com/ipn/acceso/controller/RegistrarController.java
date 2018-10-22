@@ -20,30 +20,18 @@ public class RegistrarController extends AppCompatActivity implements View.OnCli
 
     private TextView regresarLogin;
     private Button registrar;
-    private CardView identificacionCard;
-    private CardView comprobanteCard;
     private Bitmap imageBitmap;
 
     private static final int CAMERA_REQUEST = 1888;
-    private ImageView imagenIdentificacion;
-    private ImageView imagenComprobante;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
 
-        imagenIdentificacion = findViewById(R.id.imagen_identificacion_id);
-        imagenComprobante = findViewById(R.id.imagen_comprobante_id);
-
         regresarLogin = findViewById(R.id.regreso_login);
         registrar = findViewById(R.id.btn_crear_cuenta);
-        identificacionCard = findViewById(R.id.identificacion_card_id);
-        comprobanteCard = findViewById(R.id.comprobante_card_id);
-
         regresarLogin.setOnClickListener(this);
-        identificacionCard.setOnClickListener(this);
-        comprobanteCard.setOnClickListener(this);
         registrar.setOnClickListener(this);
     }
 
@@ -55,14 +43,6 @@ public class RegistrarController extends AppCompatActivity implements View.OnCli
             case R.id.regreso_login:
                 intent = new Intent(this, LoginController.class);
                 startActivity(intent);
-                break;
-            case R.id.identificacion_card_id:
-                openCamera();
-                imagenIdentificacion.setImageBitmap(imageBitmap);
-                break;
-            case R.id.comprobante_card_id:
-                openCamera();
-                imagenComprobante.setImageBitmap(imageBitmap);
                 break;
             case R.id.btn_crear_cuenta:
                 //enviar servicio de correo

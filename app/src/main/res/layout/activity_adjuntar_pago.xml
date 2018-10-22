@@ -21,7 +21,7 @@ android:background="#fcfcfc">
         app:expandedTitleMarginEnd="64dp"
         app:expandedTitleMarginStart="48dp"
         app:layout_scrollFlags="exitUntilCollapsed|scroll"
-        app:title="Gestionar Pagos">
+        app:title="Adjuntar Comprobante de Pago">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar_id"
@@ -52,59 +52,22 @@ android:background="#fcfcfc">
             android:layout_width="match_parent"
             android:orientation="horizontal">
             <android.support.v7.widget.CardView
-                android:id="@+id/adjuntar_file_card_id"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:clickable="true"
-                android:layout_height="190dp"
-                android:layout_margin="10dp"
-                android:layout_width="160dp">
-                <LinearLayout
-                    android:gravity="center"
-                    android:layout_height="match_parent"
-                    android:layout_width="match_parent"
-                    android:orientation="vertical">
-                    <ImageView
-                        android:background="@drawable/purple_circle"
-                        android:layout_height="64dp"
-                        android:layout_width="64dp"
-                        android:padding="10dp"
-                        android:src="@drawable/ic_attach_file_black_24dp"/>
-                    <TextView
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:layout_marginTop="10dp"
-                        android:textStyle="bold"
-                        android:text="Adjuntar Archivo"/>
-                    <View
-                        android:background="@color/lightgray"
-                        android:layout_height="1dp"
-                        android:layout_margin="10dp"
-                        android:layout_width="match_parent"/>
-                    <TextView
-                        android:gravity="center"
-                        android:layout_height="wrap_content"
-                        android:layout_width="wrap_content"
-                        android:padding="5dp"
-                        android:textColor="@android:color/darker_gray"
-                        android:text="Aquí puedes agregar un archivo de pago local."/>
-                </LinearLayout>
-            </android.support.v7.widget.CardView>
-            <android.support.v7.widget.CardView
                 android:id="@+id/aduntar_image_card_id"
                 android:foreground="?android:attr/selectableItemBackground"
                 android:clickable="true"
                 android:layout_height="190dp"
                 android:layout_margin="10dp"
-                android:layout_width="160dp">
+                android:layout_width="300dp">
                 <LinearLayout
                     android:gravity="center"
                     android:layout_height="match_parent"
                     android:layout_width="match_parent"
                     android:orientation="vertical">
                     <ImageView
+                        android:id="@+id/imagen_pago_id"
                         android:background="@drawable/green_circle"
-                        android:layout_height="64dp"
-                        android:layout_width="64dp"
+                        android:layout_height="100dp"
+                        android:layout_width="100dp"
                         android:padding="10dp"
                         android:src="@drawable/ic_camera_alt_black_24dp"/>
                     <TextView
@@ -128,6 +91,17 @@ android:background="#fcfcfc">
                 </LinearLayout>
             </android.support.v7.widget.CardView>
         </LinearLayout>
+
+        <Button
+            android:id="@+id/btn_enviar_pago"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/button_style"
+            android:gravity="center"
+            android:text="Enviar Pago"
+            android:textColor="@color/white" />
     </LinearLayout>
 </android.support.v4.widget.NestedScrollView>
 </android.support.design.widget.CoordinatorLayout>

@@ -11,9 +11,12 @@ import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.example.erick.homedashboard.R;
+import com.example.erick.homedashboard.com.ipn.home.controller.SubdirectorActivity;
 import com.example.erick.homedashboard.com.ipn.pagos.api.PagosApiService;
 import com.example.erick.homedashboard.com.ipn.pagos.modelo.Pago;
 import com.example.erick.homedashboard.com.ipn.pagos.response.PagoRespuesta;
@@ -29,60 +32,41 @@ import retrofit2.Response;
 public class AdjuntarPago extends AppCompatActivity implements View.OnClickListener {
 
     private static final String TAG = "ADJUNTAR_PAGO: ";
-
-
     private static final int FILE_SELECT_CODE = 0;
     private static final int CAMERA_REQUEST = 1888;
-    private CardView pagosCard;
+    private static final int FILE_SIZE_LIMIT = 2000;
+
     private CardView notasCard;
     private Bitmap imageBitmap;
     private PagosApiService service;
+    private ImageView imagenPago;
+    private Button pagar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adjuntar_pago);
 
-        pagosCard = findViewById(R.id.adjuntar_file_card_id);
+        imagenPago = findViewById(R.id.imagen_pago_id);
         notasCard = findViewById(R.id.aduntar_image_card_id);
-        pagosCard.setOnClickListener(this);
+        pagar = findViewById(R.id.btn_enviar_pago);
+        pagar.setVisibility(View.INVISIBLE);
         notasCard.setOnClickListener(this);
-
-        service = RetrofitClient
-                .getClient(BaseUrlContants.PAGOS_URL)
-                .create(PagosApiService.class);
-
-        //consumeService(service.agreagarPago());
+        pagar.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.pagos_card_id:
-                openFileSystem();
-                break;
-            case R.id.notas_card_id:
+            case R.id.aduntar_image_card_id:
                 openCamera();
+                break;
+            case R.id.btn_enviar_pago:
+                validatePayment();
                 break;
             default:
                 break;
         }
-    }
-
-    public void openFileSystem() {
-        Intent intent = new Intent(Intent.ACTION_GET_CONTENT);
-        intent.setType("*/*");
-        intent.addCategory(Intent.CATEGORY_OPENABLE);
-        try {
-            this.startActivityForResult(
-                    Intent.createChooser(intent, "Select a File to Upload"),
-                    FILE_SELECT_CODE);
-
-        } catch (android.content.ActivityNotFoundException ex) {
-            Toast.makeText(this, "Please install a File Manager.",
-                    Toast.LENGTH_SHORT).show();
-        }
-
     }
 
     public void openCamera() {
@@ -91,6 +75,33 @@ public class AdjuntarPago extends AppCompatActivity implements View.OnClickListe
         } else {
             Intent cameraIntent = new Intent(android.provider.MediaStore.ACTION_IMAGE_CAPTURE);
             startActivityForResult(cameraIntent, CAMERA_REQUEST);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            imageBitmap = (Bitmap) extras.get("data");
+            imagenPago.setImageBitmap(imageBitmap);
+            if(imagenPago != null) {
+                pagar.setVisibility(View.VISIBLE);
+            }
+        }
+    }
+
+    public void validatePayment() {
+        if(imagenPago != null){
+            service = RetrofitClient
+                    .getClient(BaseUrlContants.PAGOS_URL)
+                    .create(PagosApiService.class);
+            consumeService(service.agreagarPago());
+            Toast.makeText(this, "Envio Exitoso", Toast.LENGTH_LONG).show();
+            Log.e(TAG, "Envio Exitoso: ");
+            Intent intent = new Intent(this, PagoController.class);
+            startActivity(intent);
+        } else {
+            Log.e(TAG, "lel Imagen Nula: ");
         }
     }
 

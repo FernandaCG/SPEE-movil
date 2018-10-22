@@ -63,7 +63,7 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
         public ViewHolder(View v) {
             super(v);
             vTitle = v.findViewById(R.id.concepto_id);
-             itemView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
         }
 
         @Override
@@ -71,7 +71,6 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
             if (clickListener != null)
                 clickListener.onClick(view, getAdapterPosition());
         }
-
-
+        
     }
 }
