@@ -9,8 +9,8 @@ import retrofit2.http.Query;
 
 public interface PagosApiService {
 
-    @GET("pokemon")
-    Call<PagoRespuesta> obtenerListaPagos(@Query("limit") int limit, @Query("offset") int offset);
+    @GET("gestionar-pagos!getPaymentsByUserId")
+    Call<PagoRespuesta> obtenerListaPagos();
 
     @POST("pokemon")
     Call<PagoRespuesta> agreagarPago();

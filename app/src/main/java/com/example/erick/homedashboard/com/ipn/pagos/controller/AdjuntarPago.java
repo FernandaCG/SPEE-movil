@@ -110,7 +110,7 @@ public class AdjuntarPago extends AppCompatActivity implements View.OnClickListe
             @Override
             public void onResponse(Call<PagoRespuesta> call, Response<PagoRespuesta> response) {
                 if(response.isSuccessful()) {
-                    ArrayList<Pago> responseList = response.body().getResults();
+                    ArrayList<Pago> responseList = response.body().getAjaxResult();
                     Log.e(TAG, " onResponse: " + responseList);
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());

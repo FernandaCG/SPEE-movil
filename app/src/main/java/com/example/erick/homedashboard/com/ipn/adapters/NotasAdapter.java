@@ -35,6 +35,7 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(NotasAdapter.ViewHolder viewHolder, int position) {
+        System.out.println(items.get(position));
         viewHolder.vTitle.setText(items.get(position).getName());
     }
 
@@ -44,6 +45,9 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.ViewHolder> 
     }
 
     public void agregarListaNotas(ArrayList<Nota> listaNotas) {
+        for (Nota n: listaNotas) {
+            System.out.println(n);
+        }
         items.addAll(listaNotas);
         notifyDataSetChanged();
     }

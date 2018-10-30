@@ -17,8 +17,10 @@ import com.example.erick.homedashboard.com.ipn.servicios.modelo.CatalogoServicio
 import com.example.erick.homedashboard.com.ipn.servicios.response.CatalogoServiciosResponse;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -47,7 +49,7 @@ public class ServiciosController extends AppCompatActivity implements OnItemClic
 
         aptoParaCargar = true;
         offset = 0;
-        consumeService(service.obtenerCatalogoServicios(20, offset));
+        consumeService(service.obtenerCatalogoServicios());
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_servicios_id);
         listaServiciosAdapter = new CatalogoServiciosAdapter(this);
@@ -72,7 +74,7 @@ public class ServiciosController extends AppCompatActivity implements OnItemClic
 
                             aptoParaCargar = false;
                             offset += 20;
-                            consumeService(service.obtenerCatalogoServicios(20, offset));
+                            consumeService(service.obtenerCatalogoServicios());
                         }
                     }
                 }
@@ -89,15 +91,19 @@ public class ServiciosController extends AppCompatActivity implements OnItemClic
     }
 
     public void consumeService(Call respuestaCall) {
+        System.out.println(respuestaCall.request());
         respuestaCall.enqueue(new Callback<CatalogoServiciosResponse>() {
             @Override
             public void onResponse(Call<CatalogoServiciosResponse> call, Response<CatalogoServiciosResponse> response) {
                 aptoParaCargar = true;
                 if(response.isSuccessful()) {
-                    ArrayList<CatalogoServicios> responseList = response.body().getResults();
+                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
+                    ArrayList<CatalogoServicios> responseList = response.body().getAjaxResult();
                     listaServiciosAdapter.agregarListaServicios(responseList);
+
                 } else {
-                    Log.e(TAG, " onResponseError: " + response.errorBody());
+                    Log.e(TAG, " onResponseError: " + new Gson().toJson(response));
+                    Log.e(TAG, " onResponseError: " + new Gson().toJson(response.errorBody()));
                 }
             }
 

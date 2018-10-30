@@ -36,6 +36,7 @@ public class NotificacionesAdapter extends RecyclerView.Adapter<NotificacionesAd
     @Override
     public void onBindViewHolder(NotificacionesAdapter.ViewHolder viewHolder, int position) {
         viewHolder.vTitle.setText(items.get(position).getName());
+
     }
 
     @Override

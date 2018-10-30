@@ -25,20 +25,33 @@
                 android:layout_width="10dp"
                 android:padding="10dp" />
             <TextView
+                android:id="@+id/clave_id"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp" />
+            <TextView
                 android:id="@+id/concepto_id"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Pago inscripción idoma inglés"/>
+                android:paddingLeft="20dp" />
             <TextView
+                android:id="@+id/precio_id"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="$300 MXN"/>
+                android:paddingLeft="20dp" />
+            <TextView
+                android:id="@+id/area_id"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

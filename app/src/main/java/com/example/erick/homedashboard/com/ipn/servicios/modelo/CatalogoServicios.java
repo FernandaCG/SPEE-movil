@@ -1,5 +1,9 @@
 package com.example.erick.homedashboard.com.ipn.servicios.modelo;
 
+import com.example.erick.homedashboard.com.ipn.pagos.modelo.Pago;
+
+import java.util.List;
+
 public class CatalogoServicios {
 
     private String name;

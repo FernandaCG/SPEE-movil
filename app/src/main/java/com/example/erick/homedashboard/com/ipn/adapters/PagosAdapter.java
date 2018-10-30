@@ -35,7 +35,9 @@ public class PagosAdapter extends RecyclerView.Adapter<PagosAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.vTitle.setText(items.get(position).getName());
+        viewHolder.vClave.setText(items.get(position).getFechaEnvio());
+        viewHolder.vFecha.setText(items.get(position).getFolioOperacion());
+//        viewHolder.vEstado.setText(items.get(position).getIdEstadoPago());
     }
 
     @Override
@@ -49,13 +51,18 @@ public class PagosAdapter extends RecyclerView.Adapter<PagosAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
+        TextView vClave;
+        TextView vFecha;
+      //  TextView vEstado;
 
-        TextView vTitle;
         private ImageView fotoImageView;
+
 
         public ViewHolder(View v) {
             super(v);
-            vTitle = (TextView) v.findViewById(R.id.book_title_id);
+            vFecha = (TextView) v.findViewById(R.id.fecha_evio_id);
+            vClave = (TextView) v.findViewById(R.id.clave_id);
+          //  vEstado = (TextView) v.findViewById(R.id.estado_id);
             fotoImageView = (ImageView) itemView.findViewById(R.id.book_img_id);
 
         }

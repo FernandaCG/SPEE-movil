@@ -1,5 +1,7 @@
 package com.example.erick.homedashboard.com.ipn.pagos.modelo;
 
+import com.example.erick.homedashboard.com.ipn.servicios.modelo.CatalogoServicios;
+
 import java.util.Date;
 
 public class Pago {
@@ -8,7 +10,9 @@ public class Pago {
 
     private Integer id;
 
-    private Date fechaEnvio;
+    private CatalogoServicios catalogoServicio;
+
+    private String fechaEnvio;
 
     private Integer idTipoComprobante;
 
@@ -43,11 +47,11 @@ public class Pago {
         this.id = id;
     }
 
-    public Date getFechaEnvio() {
+    public String getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaEnvio(Date fechaEnvio) {
+    public void setFechaEnvio(String fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 
@@ -97,5 +101,14 @@ public class Pago {
 
     public void setFolioOperacion(String folioOperacion) {
         this.folioOperacion = folioOperacion;
+    }
+
+
+    public CatalogoServicios getCatalogoServicio() {
+        return catalogoServicio;
+    }
+
+    public void setCatalogoServicio(CatalogoServicios catalogoServicio) {
+        this.catalogoServicio = catalogoServicio;
     }
 }

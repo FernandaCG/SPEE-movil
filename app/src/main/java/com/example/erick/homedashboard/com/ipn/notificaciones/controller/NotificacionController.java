@@ -13,6 +13,7 @@ import com.example.erick.homedashboard.com.ipn.notificaciones.modelo.Notificacio
 import com.example.erick.homedashboard.com.ipn.notificaciones.response.NotificacionesResponse;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -76,16 +77,18 @@ public class NotificacionController extends AppCompatActivity {
     }
 
     public void consumeService(Call respuestaCall) {
+        Log.e(TAG, " Request: " + respuestaCall.request());
         respuestaCall.enqueue(new Callback<NotificacionesResponse>() {
             @Override
             public void onResponse(Call<NotificacionesResponse> call, Response<NotificacionesResponse> response) {
                 aptoParaCargar = true;
                 if(response.isSuccessful()) {
-                    ArrayList<Notificacion> responseList = response.body().getResults();
+                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
+                    ArrayList<Notificacion> responseList = response.body().getAjaxResult();
                     listaNotificacionesAdapter.agregarListaNotificaciones(responseList);
                     Log.e(TAG, " onResponse: " + responseList);
                 } else {
-                    Log.e(TAG, " onResponse: " + response.errorBody());
+                    Log.e(TAG, " onError: " + response.errorBody());
                 }
             }
 

@@ -75,14 +75,17 @@ public class NotaController extends AppCompatActivity {
     }
 
     public void consumeService(Call respuestaCall) {
+        Log.e(TAG, " onResponse: " + respuestaCall.request());
         respuestaCall.enqueue(new Callback<NotasResponse>() {
             @Override
             public void onResponse(Call<NotasResponse> call, Response<NotasResponse> response) {
                 aptoParaCargar = true;
                 if(response.isSuccessful()) {
                     ArrayList<Nota> responseList = response.body().getResults();
+                    Log.e(TAG, " List: " + response.body().getResults());
+                    Log.e(TAG, " onMessage: " + response.message());
                     listaNotasAdapter.agregarListaNotas(responseList);
-                    Log.e(TAG, " onResponse: " + responseList);
+                    Log.e(TAG, " onResponse: success");
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
                 }

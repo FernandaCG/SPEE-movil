@@ -8,6 +8,6 @@ import retrofit2.http.Query;
 
 public interface CatalogoApiService {
 
-    @GET("pokemon")
-    Call<CatalogoServiciosResponse> obtenerCatalogoServicios(@Query("limit") int limit, @Query("offset") int offset);
+    @GET("gestionar-servicios!getAllServices")
+    Call<CatalogoServiciosResponse> obtenerCatalogoServicios();
 }

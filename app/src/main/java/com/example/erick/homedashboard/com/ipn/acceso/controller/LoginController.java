@@ -27,8 +27,12 @@ import com.example.erick.homedashboard.com.ipn.home.controller.ImpresionesActivi
 import com.example.erick.homedashboard.com.ipn.home.controller.MainActivity;
 import com.example.erick.homedashboard.com.ipn.home.controller.SdActivity;
 import com.example.erick.homedashboard.com.ipn.home.controller.SubdirectorActivity;
+import com.example.erick.homedashboard.com.ipn.pagos.modelo.Pago;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.Numbers;
+import com.google.gson.Gson;
+
+import java.util.ArrayList;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -58,7 +62,6 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         mFloatLabelUserId = findViewById(R.id.float_label_user_id);
         mFloatLabelPassword = findViewById(R.id.float_label_password);
         correo = findViewById(R.id.id_mail);
@@ -79,45 +82,7 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
         service = retrofit.create(LoginApiService.class);
 
 
-        consumeService(service.login("cesar.je.lo@gmail.com", "password"));
 
-    }
-
-    public void consumeService(Call respuestaCall) {
-        respuestaCall.enqueue(new Callback<LoginResponse>() {
-            @Override
-            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
-                showProgress(false);
-
-                if (!response.isSuccessful()) {
-                    if (response.errorBody()
-                            .contentType()
-                            .subtype()
-                            .equals("application/json")) {
-
-                        Log.e(TAG, " onResponse: " + response.errorBody());
-                    } else {
-                        Log.e(TAG, " onResponse: " + response.errorBody());
-                        showLoginError(response.message());
-                    }
-                    return;
-                }else {
-                    showLoginError(response.body().toString());
-                }
-
-                // Guardar afiliado en preferencias
-                //SessionPrefs.get(LoginController.this).saveAffiliate(response.body());
-
-                // Ir a la citas médicas
-                //  showAppointmentsScreen();
-            }
-
-            @Override
-            public void onFailure(Call<LoginResponse> call, Throwable t) {
-                showProgress(false);
-                t.getMessage();
-            }
-        });
     }
 
     @Override
@@ -130,8 +95,6 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
                 } else {
                     showLoginError(getString(R.string.error_network));
                 }
-
-                redireccionarPerfil(8);
                 break;
             case R.id.registrarse_id:
                 intent = new Intent(this, RegistrarController.class);
@@ -232,8 +195,42 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
         } else {
             showProgress(true);
             Log.e(TAG, " Trata de hacer login");
-           // consumeService(service.login(new Usuario(correoText, passwordText)));
+            Log.e(TAG, " Datos: " + correoText + " " + passwordText);
+            consumeService(service.login(correoText, passwordText));
+            redireccionarPerfil(8);
         }
+    }
+
+    public void consumeService(Call respuestaCall) {
+        Log.e(TAG, "URL" + respuestaCall.request());
+        respuestaCall.enqueue(new Callback<LoginResponse>() {
+            @Override
+            public void onResponse(Call<LoginResponse> call, Response<LoginResponse> response) {
+                showProgress(false);
+                if(response.isSuccessful()) {
+                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
+                    LoginResponse loginResponse = response.body();
+                    Log.e(TAG, " onResponse: " + loginResponse);
+                } else {
+                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
+                    Log.e(TAG, " onResponse: " + response.errorBody());
+                    showLoginError(response.body().toString());
+                }
+
+                // Guardar afiliado en preferencias
+                //SessionPrefs.get(LoginController.this).saveAffiliate(response.body());
+
+                // Ir a la citas médicas
+                //  showAppointmentsScreen();
+            }
+
+            @Override
+            public void onFailure(Call<LoginResponse> call, Throwable t) {
+                Log.e(TAG, " onFail: " + call.request());
+                Log.e(TAG, " onFail: " +  t.getMessage());
+                showProgress(false);
+            }
+        });
     }
 
     private boolean isUserIdValid(String userId) {

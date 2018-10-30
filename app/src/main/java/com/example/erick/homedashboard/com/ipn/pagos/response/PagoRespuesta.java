@@ -6,23 +6,13 @@ import java.util.ArrayList;
 
 public class PagoRespuesta {
 
-    private ArrayList<Pago> results;
+    private ArrayList<Pago> ajaxResult;
 
-    private Integer count;
-
-    public ArrayList<Pago> getResults() {
-        return results;
+    public ArrayList<Pago> getAjaxResult() {
+        return ajaxResult;
     }
 
-    public void setResults(ArrayList<Pago> results) {
-        this.results = results;
-    }
-
-    public Integer getCount() {
-        return count;
-    }
-
-    public void setCount(Integer count) {
-        this.count = count;
+    public void setAjaxResult(ArrayList<Pago> ajaxResult) {
+        this.ajaxResult = ajaxResult;
     }
 }

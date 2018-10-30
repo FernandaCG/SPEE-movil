@@ -14,6 +14,7 @@ import com.example.erick.homedashboard.com.ipn.pagos.modelo.Pago;
 import com.example.erick.homedashboard.com.ipn.pagos.response.PagoRespuesta;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import retrofit2.Call;
@@ -43,7 +44,7 @@ public class PagoController extends AppCompatActivity {
 
         aptoParaCargar = true;
         offset = 0;
-        consumeService(service.obtenerListaPagos(20, offset));
+        consumeService(service.obtenerListaPagos());
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_id);
         listaPagosAdapter = new PagosAdapter(this);
@@ -67,7 +68,7 @@ public class PagoController extends AppCompatActivity {
 
                             aptoParaCargar = false;
                             offset += 20;
-                            consumeService(service.obtenerListaPagos(20, offset));
+                            consumeService(service.obtenerListaPagos());
                         }
                     }
                 }
@@ -81,21 +82,27 @@ public class PagoController extends AppCompatActivity {
     }
 
     public void consumeService(Call respuestaCall) {
+        System.out.println(respuestaCall.request());
         respuestaCall.enqueue(new Callback<PagoRespuesta>() {
             @Override
             public void onResponse(Call<PagoRespuesta> call, Response<PagoRespuesta> response) {
                 aptoParaCargar = true;
                 if(response.isSuccessful()) {
-                    ArrayList<Pago> responseList = response.body().getResults();
+                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
+                    ArrayList<Pago> responseList = response.body().getAjaxResult();
                     listaPagosAdapter.agregarListaPagos(responseList);
-                    Log.e(TAG, " onResponse: " + responseList);
+                    Log.e(TAG, " onSuccessResponse: " + responseList);
                 } else {
-                    Log.e(TAG, " onResponse: " + response.errorBody());
+                    Log.e(TAG, " onResponseError: " + new Gson().toJson(response));
+                    Log.e(TAG, " onErrorResponse: " + response.errorBody());
                 }
             }
 
             @Override
             public void onFailure(Call<PagoRespuesta> call, Throwable t) {
+
+                Log.e(TAG, " onFailure: " + new Gson().toJson(call.request()));
+
                 t.printStackTrace();
             }
         });

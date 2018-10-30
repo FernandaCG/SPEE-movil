@@ -10,6 +10,7 @@ import android.util.Log;
 
 import com.example.erick.homedashboard.R;
 import com.example.erick.homedashboard.com.ipn.servicios.modelo.CatalogoServicios;
+import com.example.erick.homedashboard.com.ipn.servicios.response.CatalogoServiciosResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,7 +33,6 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
         View itemView = LayoutInflater.
                 from(parent.getContext()).
                 inflate(R.layout.item_catalogo_servicios, parent, false);
-       //agregar onclick para redirigir a AdjuntarPago.class activity
                return new ViewHolder(itemView);
     }
 
@@ -43,7 +43,9 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
 
     @Override
     public void onBindViewHolder(ViewHolder viewHolder, int position) {
-        viewHolder.vTitle.setText(items.get(position).getName());
+        viewHolder.vClave.setText(items.get(position).getClave());
+        viewHolder.vConcepto.setText(items.get(position).getDescripcion());
+        viewHolder.vPrecio.setText(items.get(position).getPrecio());
     }
 
     @Override
@@ -58,11 +60,17 @@ public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServi
 
     public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener  {
 
-        private TextView vTitle;
+        private TextView vClave;
+        private TextView vConcepto;
+        private TextView vPrecio;
+        private TextView vArea;
 
         public ViewHolder(View v) {
             super(v);
-            vTitle = v.findViewById(R.id.concepto_id);
+            vClave = v.findViewById(R.id.clave_id);
+            vConcepto = v.findViewById(R.id.concepto_id);
+            vPrecio = v.findViewById(R.id.precio_id);
+            vArea = v.findViewById(R.id.area_id);
             itemView.setOnClickListener(this);
         }
 

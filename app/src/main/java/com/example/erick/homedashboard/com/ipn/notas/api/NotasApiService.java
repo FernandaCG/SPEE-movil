@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface NotasApiService {
-    @GET("pokemon")
+    @GET("gestionar-servicios!getAllServices")
     Call<NotasResponse> obtenerListaNotas(@Query("limit") int limit, @Query("offset") int offset);
 }

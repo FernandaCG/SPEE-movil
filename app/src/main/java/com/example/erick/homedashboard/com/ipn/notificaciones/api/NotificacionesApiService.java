@@ -8,6 +8,6 @@ import retrofit2.http.Query;
 
 public interface NotificacionesApiService {
 
-    @GET("pokemon")
+    @GET("gestionar-notificaciones!getNotificationsByUserId")
     Call<NotificacionesResponse> obtenerListaNotificaciones(@Query("limit") int limit, @Query("offset") int offset);
 }

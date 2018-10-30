@@ -6,12 +6,12 @@ import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
+import retrofit2.http.Query;
 
 public interface LoginApiService {
 
-    @POST("login")
-    @FormUrlEncoded
-    Call<LoginResponse> login(@Field("correo") String title, @Field("password") String body);
+    @GET("login!getLoginService")
+    Call<LoginResponse> login(@Query("login") String login, @Query("password") String password);
 
 
     @GET("pokemon")

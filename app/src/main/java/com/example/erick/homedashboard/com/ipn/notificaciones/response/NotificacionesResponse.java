@@ -1,18 +1,19 @@
 package com.example.erick.homedashboard.com.ipn.notificaciones.response;
 
 import com.example.erick.homedashboard.com.ipn.notificaciones.modelo.Notificacion;
+import com.example.erick.homedashboard.com.ipn.pagos.modelo.Pago;
 
 import java.util.ArrayList;
 
 public class NotificacionesResponse {
 
-    private ArrayList<Notificacion> results;
+    private ArrayList<Notificacion> ajaxResult;
 
-    public ArrayList<Notificacion> getResults() {
-        return results;
+    public ArrayList<Notificacion> getAjaxResult() {
+        return ajaxResult;
     }
 
-    public void setResults(ArrayList<Notificacion> results) {
-        this.results = results;
+    public void setAjaxResult(ArrayList<Notificacion> ajaxResult) {
+        this.ajaxResult = ajaxResult;
     }
 }

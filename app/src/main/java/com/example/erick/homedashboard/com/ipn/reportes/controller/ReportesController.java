@@ -82,8 +82,8 @@ public class ReportesController extends AppCompatActivity {
             public void onResponse(Call<PagoRespuesta> call, Response<PagoRespuesta> response) {
                 aptoParaCargar = true;
                 if(response.isSuccessful()) {
-                    ArrayList<Pago> responseList = response.body().getResults();
-                    Log.e(TAG, " onResponse: " + responseList);
+                 //   ArrayList<Pago> responseList = response.body().getResults();
+                  //  Log.e(TAG, " onResponse: " + responseList);
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
                 }
