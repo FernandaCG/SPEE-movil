@@ -35,8 +35,8 @@ public class NotificacionesAdapter extends RecyclerView.Adapter<NotificacionesAd
 
     @Override
     public void onBindViewHolder(NotificacionesAdapter.ViewHolder viewHolder, int position) {
-        viewHolder.vTitle.setText(items.get(position).getName());
-
+        viewHolder.vMotivo.setText(items.get(position).getMotivo());
+        viewHolder.vFecha.setText(items.get(position).getFechaEnvio());
     }
 
     @Override
@@ -50,12 +50,13 @@ public class NotificacionesAdapter extends RecyclerView.Adapter<NotificacionesAd
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView vTitle;
-        private ImageView fotoImageView;
+        TextView vMotivo;
+        TextView vFecha;
 
         public ViewHolder(View v) {
             super(v);
-            vTitle = (TextView) v.findViewById(R.id.book_title_id);
+            vMotivo = v.findViewById(R.id.motivo_id);
+            vFecha = v.findViewById(R.id.fecha_id);
         }
     }
 }

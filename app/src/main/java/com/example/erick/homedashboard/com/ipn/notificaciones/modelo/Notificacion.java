@@ -14,7 +14,7 @@ public class Notificacion {
 
     private Integer idDestinatario;
 
-    private Date fechaEnvio;
+    private String fechaEnvio;
 
     public String getName() {
         return name;
@@ -56,11 +56,11 @@ public class Notificacion {
         this.idDestinatario = idDestinatario;
     }
 
-    public Date getFechaEnvio() {
+    public String getFechaEnvio() {
         return fechaEnvio;
     }
 
-    public void setFechaEnvio(Date fechaEnvio) {
+    public void setFechaEnvio(String fechaEnvio) {
         this.fechaEnvio = fechaEnvio;
     }
 }
