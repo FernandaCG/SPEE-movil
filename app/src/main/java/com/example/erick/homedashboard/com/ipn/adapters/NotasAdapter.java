@@ -35,8 +35,8 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(NotasAdapter.ViewHolder viewHolder, int position) {
-        System.out.println(items.get(position));
-        viewHolder.vTitle.setText(items.get(position).getName());
+        viewHolder.vFecha.setText(items.get(position).getFechaEmision());
+        viewHolder.vIdServicio.setText(items.get(position).getIdCatalogoServicio().toString());
     }
 
     @Override
@@ -53,12 +53,16 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.ViewHolder> 
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-        TextView vTitle;
-        private ImageView fotoImageView;
+
+        TextView vFecha;
+        TextView vIdServicio;
+
 
         public ViewHolder(View v) {
             super(v);
-            vTitle = (TextView) v.findViewById(R.id.book_title_id);
+            vFecha = (TextView) v.findViewById(R.id.fecha_nota_id);
+            vIdServicio = (TextView) v.findViewById(R.id.servicio_nota_id);
+
         }
     }
 }

@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public class NotasResponse {
 
-    private ArrayList<Nota> results;
+    private ArrayList<Nota> ajaxResult;
 
-    public ArrayList<Nota> getResults() {
-        return results;
+    public ArrayList<Nota> getAjaxResult() {
+        return ajaxResult;
     }
 
-    public void setResults(ArrayList<Nota> results) {
-        this.results = results;
+    public void setAjaxResult(ArrayList<Nota> ajaxResult) {
+        this.ajaxResult = ajaxResult;
     }
 }

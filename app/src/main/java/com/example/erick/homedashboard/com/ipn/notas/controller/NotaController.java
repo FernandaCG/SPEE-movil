@@ -28,9 +28,6 @@ public class NotaController extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotasApiService service;
 
-    private int offset;
-    private boolean aptoParaCargar;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,9 +37,7 @@ public class NotaController extends AppCompatActivity {
                 .getClient(BaseUrlContants.NOTAS_URL)
                 .create(NotasApiService.class);
 
-        aptoParaCargar = true;
-        offset = 0;
-        consumeService(service.obtenerListaNotas(20, offset));
+        consumeService(service.obtenerListaNotas());
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_notas_id);
         listaNotasAdapter = new NotasAdapter(this);
@@ -50,28 +45,6 @@ public class NotaController extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-
-                if (dy > 0) {
-                    int visibleItemCount = layoutManager.getChildCount();
-                    int totalItemCount = layoutManager.getItemCount();
-                    int pastVisibleItems = layoutManager.findFirstVisibleItemPosition();
-
-                    if (aptoParaCargar) {
-                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
-                            Log.i(TAG, " Llegamos al final.");
-
-                            aptoParaCargar = false;
-                            offset += 20;
-                            consumeService(service.obtenerListaNotas(20, offset));
-                        }
-                    }
-                }
-            }
-        });
     }
 
     public void consumeService(Call respuestaCall) {
@@ -79,10 +52,9 @@ public class NotaController extends AppCompatActivity {
         respuestaCall.enqueue(new Callback<NotasResponse>() {
             @Override
             public void onResponse(Call<NotasResponse> call, Response<NotasResponse> response) {
-                aptoParaCargar = true;
                 if(response.isSuccessful()) {
-                    ArrayList<Nota> responseList = response.body().getResults();
-                    Log.e(TAG, " List: " + response.body().getResults());
+                    ArrayList<Nota> responseList = response.body().getAjaxResult();
+                    Log.e(TAG, " List: " + response.body().getAjaxResult());
                     Log.e(TAG, " onMessage: " + response.message());
                     listaNotasAdapter.agregarListaNotas(responseList);
                     Log.e(TAG, " onResponse: success");

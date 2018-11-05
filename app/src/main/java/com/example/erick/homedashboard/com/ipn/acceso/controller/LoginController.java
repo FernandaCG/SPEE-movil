@@ -212,8 +212,8 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
                     LoginResponse loginResponse = response.body();
                     Log.e(TAG, " onResponse: " + loginResponse);
                 } else {
-                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
-                    Log.e(TAG, " onResponse: " + response.errorBody());
+                    Log.e(TAG, " onResponseError: " + new Gson().toJson(response));
+                    Log.e(TAG, " onResponseError: " + response.errorBody());
                     showLoginError(response.body().toString());
                 }
 

@@ -15,52 +15,24 @@
         android:layout_height="match_parent">
 
         <LinearLayout
-            android:orientation="horizontal"
-            android:paddingLeft="25dp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
-            <ImageView
-                android:id="@+id/book_img_id"
-                android:background="@drawable/light_green_circle"
-                android:layout_height="64dp"
-                android:layout_width="64dp"
-                android:padding="10dp" />
-            <TextView
-                android:id="@+id/book_title_id"
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Pago Aprobado"/>
-
-        </LinearLayout>
-        <LinearLayout
             android:orientation="vertical"
             android:paddingLeft="90dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
+                android:id="@+id/fecha_nota_id"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="$300 MXN"/>
+                android:paddingLeft="20dp" />
             <TextView
+                android:id="@+id/servicio_nota_id"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="Inscripción idioma inglés."/>
-            <TextView
-                android:textStyle="bold"
-                android:layout_gravity="center_vertical"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:paddingLeft="20dp"
-                android:text="04 Septiembre de 2018."/>
+                android:paddingLeft="20dp" />
         </LinearLayout>
     </LinearLayout>
 </android.support.v7.widget.CardView>

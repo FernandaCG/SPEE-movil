@@ -2,13 +2,23 @@ package com.example.erick.homedashboard.com.ipn.notas.modelo;
 
 public class Nota {
 
-    private String name;
+    private String fechaEmision;
 
-    public String getName() {
-        return name;
+    private Integer idCatalogoServicio;
+
+    public String getFechaEmision() {
+        return fechaEmision;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setFechaEmision(String fechaEmision) {
+        this.fechaEmision = fechaEmision;
+    }
+
+    public Integer getIdCatalogoServicio() {
+        return idCatalogoServicio;
+    }
+
+    public void setIdCatalogoServicio(Integer idCatalogoServicio) {
+        this.idCatalogoServicio = idCatalogoServicio;
     }
 }

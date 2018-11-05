@@ -29,9 +29,6 @@ public class NotificacionController extends AppCompatActivity {
     private RecyclerView recyclerView;
     private NotificacionesApiService service;
 
-    private int offset;
-    private boolean aptoParaCargar;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,8 +39,6 @@ public class NotificacionController extends AppCompatActivity {
                 .getClient(BaseUrlContants.NOTIFICACIONES_URL)
                 .create(NotificacionesApiService.class);
 
-        aptoParaCargar = true;
-        offset = 0;
         consumeService(service.obtenerListaNotificaciones());
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_notificaciones_id);
