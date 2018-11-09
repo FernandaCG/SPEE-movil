@@ -84,7 +84,7 @@ public class ServiciosController extends AppCompatActivity implements OnItemClic
 
     @Override
     public void onClick(View view, int position) {
-        Log.i(TAG, " Llegamos al click.");
+
         Intent intent;
         intent = new Intent(this, AdjuntarPago.class);
         startActivity(intent);
