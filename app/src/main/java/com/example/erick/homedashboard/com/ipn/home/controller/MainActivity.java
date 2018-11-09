@@ -84,9 +84,6 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_citas) {
             intent = new Intent(this, CitasController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_notificaciones) {
-            intent = new Intent(this, NotificacionController.class);
-            startActivity(intent);
         } else if (id == R.id.nav_mi_cuenta) {
             intent = new Intent(this, MiCuentaController.class);
             startActivity(intent);

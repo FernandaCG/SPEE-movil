@@ -81,9 +81,6 @@ public class SdActivity extends AppCompatActivity
         } else if (id == R.id.nav_sd_notas) {
             intent = new Intent(this, NotaController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_sd_notificaciones) {
-            intent = new Intent(this, NotificacionController.class);
-            startActivity(intent);
         } else if (id == R.id.nav_sd_notas) {
             intent = new Intent(this, NotaController.class);
             startActivity(intent);

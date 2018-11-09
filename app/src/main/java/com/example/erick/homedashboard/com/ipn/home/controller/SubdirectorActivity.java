@@ -80,10 +80,7 @@ public class SubdirectorActivity extends AppCompatActivity
         } else if (id == R.id.nav_sub_permisos) {
             intent = new Intent(this, PermisosController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_notificaciones) {
-            intent = new Intent(this, NotificacionController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_mi_cuenta) {
+        }  else if (id == R.id.nav_mi_cuenta) {
             intent = new Intent(this, MiCuentaController.class);
             startActivity(intent);
         } else if (id == R.id.nav_acerca) {

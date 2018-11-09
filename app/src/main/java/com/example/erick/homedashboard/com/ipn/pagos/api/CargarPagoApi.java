@@ -18,7 +18,9 @@ public interface CargarPagoApi {
     @POST("gestionar-pagos!getImgService")
     Call<ResponseBody> agreagarPago(@Part MultipartBody.Part image,
                                     @Part("name") RequestBody name,
-                                    @Query("idServicio") Integer idServicio);
+                                    @Query("idServicio") Integer idServicio,
+                                    @Query("folio") Integer folio,
+                                    @Query("idUser") Integer idUsuario);
 
     @GET("gestionar-pagos!getImgService")
     Call<ResponseBody> agregarB64(@Query("imgB") RequestBody image);

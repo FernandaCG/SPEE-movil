@@ -80,9 +80,6 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
                 .build();
 
         service = retrofit.create(LoginApiService.class);
-
-
-
     }
 
     @Override
