@@ -12,6 +12,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.example.erick.homedashboard.R;
+import com.example.erick.homedashboard.com.ipn.acceso.controller.LoginController;
 import com.example.erick.homedashboard.com.ipn.citas.controller.CitasController;
 import com.example.erick.homedashboard.com.ipn.cuenta.controller.MiCuentaController;
 import com.example.erick.homedashboard.com.ipn.notas.controller.NotaController;
@@ -51,7 +52,6 @@ public class ImpresionesActivity extends AppCompatActivity
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.main, menu);
         return true;
     }
@@ -59,9 +59,6 @@ public class ImpresionesActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
         return super.onOptionsItemSelected(item);
     }
@@ -78,14 +75,9 @@ public class ImpresionesActivity extends AppCompatActivity
         } else if (id == R.id.nav_impr_nota) {
             intent = new Intent(this, NotaController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_mi_cuenta) {
-            intent = new Intent(this, MiCuentaController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_acerca) {
-            intent = new Intent(this, AboutController.class);
-            startActivity(intent);
         } else if (id == R.id.nav_cerrar_sesion) {
-
+            intent = new Intent(this, LoginController.class);
+            startActivity(intent);
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_impresiones);

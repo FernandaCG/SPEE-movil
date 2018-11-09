@@ -65,7 +65,7 @@ android:background="#fcfcfc">
                     android:layout_width="match_parent"
                     android:orientation="vertical">
                     <ImageView
-                        android:background="@drawable/green_circle"
+                        android:background="@drawable/pink_circle"
                         android:layout_height="64dp"
                         android:layout_width="64dp"
                         android:padding="10dp"

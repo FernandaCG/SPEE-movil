@@ -10,11 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-
-import com.example.erick.homedashboard.com.ipn.cuenta.controller.MiCuentaController;
+import com.example.erick.homedashboard.com.ipn.acceso.controller.LoginController;
 import com.example.erick.homedashboard.com.ipn.citas.controller.CitasController;
 import com.example.erick.homedashboard.com.ipn.notas.controller.NotaController;
-import com.example.erick.homedashboard.com.ipn.notificaciones.controller.NotificacionController;
 import com.example.erick.homedashboard.com.ipn.pagos.service.PagoService;
 import com.example.erick.homedashboard.R;
 import com.example.erick.homedashboard.com.ipn.servicios.controller.ServiciosController;
@@ -59,10 +57,6 @@ public class MainActivity extends AppCompatActivity
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
         return super.onOptionsItemSelected(item);
     }
 
@@ -84,14 +78,9 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_citas) {
             intent = new Intent(this, CitasController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_mi_cuenta) {
-            intent = new Intent(this, MiCuentaController.class);
+        }  else if (id == R.id.nav_cerrar_sesion) {
+            intent = new Intent(this, LoginController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_acerca) {
-            intent = new Intent(this, AboutController.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_cerrar_sesion) {
-
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

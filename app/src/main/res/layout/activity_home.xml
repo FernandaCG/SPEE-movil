@@ -96,12 +96,10 @@
                 android:layout_width="match_parent"
                 android:orientation="horizontal">
                 <android.support.v7.widget.CardView
-                    android:id="@+id/pagos_card_id"
                     android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
                     android:layout_height="190dp"
                     android:layout_margin="10dp"
-                    android:layout_width="160dp">
+                    android:layout_width="330dp">
                     <LinearLayout
                         android:gravity="center"
                         android:layout_height="match_parent"
@@ -131,44 +129,6 @@
                             android:padding="5dp"
                             android:textColor="@android:color/darker_gray"
                             android:text="Aquí puedes revisar el estado de los pagos que emitas."/>
-                    </LinearLayout>
-                </android.support.v7.widget.CardView>
-                <android.support.v7.widget.CardView
-                    android:id="@+id/notas_card_id"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:clickable="true"
-                    android:layout_height="190dp"
-                    android:layout_margin="10dp"
-                    android:layout_width="160dp">
-                    <LinearLayout
-                        android:gravity="center"
-                        android:layout_height="match_parent"
-                        android:layout_width="match_parent"
-                        android:orientation="vertical">
-                        <ImageView
-                            android:background="@drawable/pink_circle"
-                            android:layout_height="64dp"
-                            android:layout_width="64dp"
-                            android:padding="10dp"
-                            android:src="@drawable/ic_note_black_24dp"/>
-                        <TextView
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:layout_marginTop="10dp"
-                            android:textStyle="bold"
-                            android:text="Gestionar Notas"/>
-                        <View
-                            android:background="@color/lightgray"
-                            android:layout_height="1dp"
-                            android:layout_margin="10dp"
-                            android:layout_width="match_parent"/>
-                        <TextView
-                            android:gravity="center"
-                            android:layout_height="wrap_content"
-                            android:layout_width="wrap_content"
-                            android:padding="5dp"
-                            android:textColor="@android:color/darker_gray"
-                            android:text="Aquí podrás gestionar tus notas de pago."/>
                     </LinearLayout>
                 </android.support.v7.widget.CardView>
             </LinearLayout>
