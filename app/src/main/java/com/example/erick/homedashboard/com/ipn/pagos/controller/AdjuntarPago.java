@@ -1,16 +1,12 @@
 package com.example.erick.homedashboard.com.ipn.pagos.controller;
 
-import android.Manifest;
 import android.content.Intent;
-import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
-import android.support.v4.app.ActivityCompat;
-import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -18,11 +14,11 @@ import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.example.erick.homedashboard.R;
+import com.example.erick.homedashboard.com.ipn.home.controller.MainActivity;
 import com.example.erick.homedashboard.com.ipn.pagos.api.CargarPagoApi;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
@@ -48,7 +44,6 @@ public class AdjuntarPago extends AppCompatActivity {
     private TextView folio;
     private TextInputLayout mFloatLabelFolio;
     private Button pagar;
-
     private String mediaPath;
     private String[] mediaColumns = { MediaStore.Video.Media._ID };
 
@@ -93,13 +88,13 @@ public class AdjuntarPago extends AppCompatActivity {
                     focusView.requestFocus();
                 } else {
                     uploadFile( 1, Integer.parseInt(folioText), 14);
-                    redireccionar(1);
+                    redireccionar();
                 }
             }
         });
     }
 
-    public void redireccionar(Integer perfil) {
+    public void redireccionar() {
         Toast.makeText(this, "Evio de Pago exitoso", Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this, PagoController.class);
         startActivity(intent);

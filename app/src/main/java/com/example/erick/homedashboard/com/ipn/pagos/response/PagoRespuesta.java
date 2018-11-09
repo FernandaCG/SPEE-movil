@@ -6,13 +6,13 @@ import java.util.ArrayList;
 
 public class PagoRespuesta {
 
-    private ArrayList<Pago> ajaxResult;
+    private ArrayList<Pago> jsonResult;
 
     public ArrayList<Pago> getAjaxResult() {
-        return ajaxResult;
+        return jsonResult;
     }
 
     public void setAjaxResult(ArrayList<Pago> ajaxResult) {
-        this.ajaxResult = ajaxResult;
+        this.jsonResult = ajaxResult;
     }
 }

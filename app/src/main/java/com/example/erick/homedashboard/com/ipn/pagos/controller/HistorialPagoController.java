@@ -44,7 +44,7 @@ public class HistorialPagoController extends AppCompatActivity {
 
         aptoParaCargar = true;
         offset = 0;
-        consumeService(service.obtenerListaPagos());
+        consumeService(service.obtenerListaPagos(14));
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_historial_id);
         listaPagosAdapter = new PagosAdapter(this);
@@ -68,7 +68,7 @@ public class HistorialPagoController extends AppCompatActivity {
 
                             aptoParaCargar = false;
                             offset += 20;
-                            consumeService(service.obtenerListaPagos());
+                            consumeService(service.obtenerListaPagos(14));
                         }
                     }
                 }
@@ -87,9 +87,7 @@ public class HistorialPagoController extends AppCompatActivity {
             public void onResponse(Call<PagoRespuesta> call, Response<PagoRespuesta> response) {
                 aptoParaCargar = true;
                 if(response.isSuccessful()) {
-                   // ArrayList<Pago> responseList = response.body().getResults();
-                    //listaPagosAdapter.agregarListaPagos(responseList);
-                   // Log.e(TAG, " onResponse: " + responseList);
+
                 } else {
                     Log.e(TAG, " onResponse: " + response.errorBody());
                 }

@@ -1,13 +1,18 @@
 package com.example.erick.homedashboard.com.ipn.pagos.controller;
 
 import android.app.Dialog;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.View;
+import android.widget.ImageView;
 
 import com.example.erick.homedashboard.R;
+import com.example.erick.homedashboard.com.ipn.adapters.OnItemClickListener;
 import com.example.erick.homedashboard.com.ipn.adapters.PagosAdapter;
 import com.example.erick.homedashboard.com.ipn.pagos.api.PagosApiService;
 import com.example.erick.homedashboard.com.ipn.pagos.modelo.Pago;
@@ -21,7 +26,7 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-public class PagoController extends AppCompatActivity {
+public class PagoController extends AppCompatActivity implements OnItemClickListener {
 
     private static final String TAG = "PAGO: ";
 
@@ -44,41 +49,23 @@ public class PagoController extends AppCompatActivity {
 
         aptoParaCargar = true;
         offset = 0;
-        consumeService(service.obtenerListaPagos());
+        consumeService(service.obtenerListaPagos(14));
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_id);
         listaPagosAdapter = new PagosAdapter(this);
+        listaPagosAdapter.setClickListener(this);
         recyclerView.setAdapter(listaPagosAdapter);
         recyclerView.setHasFixedSize(true);
         final LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
+    }
 
-                if (dy > 0) {
-                    int visibleItemCount = layoutManager.getChildCount();
-                    int totalItemCount = layoutManager.getItemCount();
-                    int pastVisibleItems = layoutManager.findFirstVisibleItemPosition();
-
-                    if (aptoParaCargar) {
-                        if ((visibleItemCount + pastVisibleItems) >= totalItemCount) {
-                            Log.i(TAG, " Llegamos al final.");
-
-                            aptoParaCargar = false;
-                            offset += 20;
-                            consumeService(service.obtenerListaPagos());
-                        }
-                    }
-                }
-            }
-        });
-
-        //customDialog = new Dialog(this);
-        //customDialog.setContentView(R.layout.custom_pop_pagos);
-        //customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        //customDialog.show();
+    @Override
+    public void onClick(View view, int position) {
+        customDialog = new Dialog(this);
+        customDialog.setContentView(R.layout.custom_pop_pagos);
+        customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        customDialog.show();
     }
 
     public void consumeService(Call respuestaCall) {
@@ -91,7 +78,6 @@ public class PagoController extends AppCompatActivity {
                     Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
                     ArrayList<Pago> responseList = response.body().getAjaxResult();
                     listaPagosAdapter.agregarListaPagos(responseList);
-                    Log.e(TAG, " onSuccessResponse: " + responseList);
                 } else {
                     Log.e(TAG, " onResponseError: " + new Gson().toJson(response));
                     Log.e(TAG, " onErrorResponse: " + response.errorBody());
@@ -100,9 +86,7 @@ public class PagoController extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<PagoRespuesta> call, Throwable t) {
-
                 Log.e(TAG, " onFailure: " + new Gson().toJson(call.request()));
-
                 t.printStackTrace();
             }
         });

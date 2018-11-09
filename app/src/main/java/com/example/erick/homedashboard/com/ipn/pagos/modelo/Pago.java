@@ -26,10 +26,6 @@ public class Pago {
 
     private String folioOperacion;
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
     public String getName() {
         return name;
     }
@@ -38,13 +34,20 @@ public class Pago {
         this.name = name;
     }
 
-
     public Integer getId() {
         return id;
     }
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public CatalogoServicios getCatalogoServicio() {
+        return catalogoServicio;
+    }
+
+    public void setCatalogoServicio(CatalogoServicios catalogoServicio) {
+        this.catalogoServicio = catalogoServicio;
     }
 
     public String getFechaEnvio() {
@@ -101,14 +104,5 @@ public class Pago {
 
     public void setFolioOperacion(String folioOperacion) {
         this.folioOperacion = folioOperacion;
-    }
-
-
-    public CatalogoServicios getCatalogoServicio() {
-        return catalogoServicio;
-    }
-
-    public void setCatalogoServicio(CatalogoServicios catalogoServicio) {
-        this.catalogoServicio = catalogoServicio;
     }
 }

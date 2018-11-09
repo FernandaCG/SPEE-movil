@@ -15,7 +15,7 @@ import java.util.List;
 
 public class CatalogoServiciosAdapter extends RecyclerView.Adapter<CatalogoServiciosAdapter.ViewHolder> {
 
-    private static final String TAG = "SERVIOS ADAPTER: ";
+    private static final String TAG = "SERVICIOS ADAPTER: ";
 
     private List<CatalogoServicios> items;
     private Context context;
