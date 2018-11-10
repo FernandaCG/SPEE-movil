@@ -16,7 +16,7 @@
 
         <LinearLayout
             android:orientation="vertical"
-            android:paddingLeft="90dp"
+            android:paddingLeft="0dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <TextView
@@ -27,7 +27,14 @@
                 android:layout_height="wrap_content"
                 android:paddingLeft="20dp" />
             <TextView
-                android:id="@+id/servicio_nota_id"
+                android:id="@+id/id_descripcion_nota"
+                android:textStyle="bold"
+                android:layout_gravity="center_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp" />
+            <TextView
+                android:id="@+id/id_servicio"
                 android:textStyle="bold"
                 android:layout_gravity="center_vertical"
                 android:layout_width="wrap_content"

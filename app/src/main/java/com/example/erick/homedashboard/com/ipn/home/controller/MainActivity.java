@@ -75,10 +75,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_notas) {
             intent = new Intent(this, NotaController.class);
             startActivity(intent);
-        } else if (id == R.id.nav_citas) {
-            intent = new Intent(this, CitasController.class);
-            startActivity(intent);
-        }  else if (id == R.id.nav_cerrar_sesion) {
+        } else if (id == R.id.nav_cerrar_sesion) {
             intent = new Intent(this, LoginController.class);
             startActivity(intent);
         }

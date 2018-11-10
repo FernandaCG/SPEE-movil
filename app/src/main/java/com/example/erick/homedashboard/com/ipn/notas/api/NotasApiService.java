@@ -8,5 +8,5 @@ import retrofit2.http.Query;
 
 public interface NotasApiService {
     @GET("gestionar-notas-pago!getNotesByUserId")
-    Call<NotasResponse> obtenerListaNotas();
+    Call<NotasResponse> obtenerListaNotas(@Query("idUser") Integer idUsuario);
 }

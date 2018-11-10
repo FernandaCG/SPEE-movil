@@ -1,17 +1,21 @@
 package com.example.erick.homedashboard.com.ipn.notas.modelo;
 
+import com.example.erick.homedashboard.com.ipn.servicios.modelo.CatalogoServicios;
+
 public class Nota {
 
-    private String fechaEmision;
+    private String fhEmision;
 
     private Integer idCatalogoServicio;
 
-    public String getFechaEmision() {
-        return fechaEmision;
+    private CatalogoServicios catalogoServicio;
+
+    public String getFhEmision() {
+        return fhEmision;
     }
 
-    public void setFechaEmision(String fechaEmision) {
-        this.fechaEmision = fechaEmision;
+    public void setFhEmision(String fhEmision) {
+        this.fhEmision = fhEmision;
     }
 
     public Integer getIdCatalogoServicio() {
@@ -20,5 +24,13 @@ public class Nota {
 
     public void setIdCatalogoServicio(Integer idCatalogoServicio) {
         this.idCatalogoServicio = idCatalogoServicio;
+    }
+
+    public CatalogoServicios getCatalogoServicio() {
+        return catalogoServicio;
+    }
+
+    public void setCatalogoServicio(CatalogoServicios catalogoServicio) {
+        this.catalogoServicio = catalogoServicio;
     }
 }

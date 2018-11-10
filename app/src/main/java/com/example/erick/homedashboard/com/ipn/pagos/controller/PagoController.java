@@ -62,10 +62,11 @@ public class PagoController extends AppCompatActivity implements OnItemClickList
 
     @Override
     public void onClick(View view, int position) {
+        /*
         customDialog = new Dialog(this);
         customDialog.setContentView(R.layout.custom_pop_pagos);
         customDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        customDialog.show();
+        customDialog.show();*/
     }
 
     public void consumeService(Call respuestaCall) {

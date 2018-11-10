@@ -35,8 +35,9 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.ViewHolder> 
 
     @Override
     public void onBindViewHolder(NotasAdapter.ViewHolder viewHolder, int position) {
-        viewHolder.vFecha.setText(items.get(position).getFechaEmision());
+        viewHolder.vFecha.setText(items.get(position).getFhEmision());
         viewHolder.vIdServicio.setText(items.get(position).getIdCatalogoServicio().toString());
+        viewHolder.vConcepto.setText(items.get(position).getCatalogoServicio().getDescripcion());
     }
 
     @Override
@@ -56,12 +57,14 @@ public class NotasAdapter extends RecyclerView.Adapter<NotasAdapter.ViewHolder> 
 
         TextView vFecha;
         TextView vIdServicio;
+        TextView vConcepto;
 
 
         public ViewHolder(View v) {
             super(v);
-            vFecha = (TextView) v.findViewById(R.id.fecha_nota_id);
-            vIdServicio = (TextView) v.findViewById(R.id.servicio_nota_id);
+            vFecha =  v.findViewById(R.id.fecha_nota_id);
+            vIdServicio =  v.findViewById(R.id.id_servicio);
+            vConcepto = v.findViewById(R.id.id_descripcion_nota);
 
         }
     }

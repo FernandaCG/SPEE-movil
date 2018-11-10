@@ -16,10 +16,6 @@
             android:id="@+id/nav_notas"
             android:icon="@drawable/ic_note_black_24dp"
             android:title="Notas" />
-        <item
-            android:id="@+id/nav_citas"
-            android:icon="@drawable/ic_access_time_black_24dp"
-            android:title="Citas" />
     </group>
 
     <item android:title="Cuenta">

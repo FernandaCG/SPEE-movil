@@ -13,6 +13,7 @@ import com.example.erick.homedashboard.com.ipn.notas.modelo.Nota;
 import com.example.erick.homedashboard.com.ipn.notas.response.NotasResponse;
 import com.example.erick.homedashboard.com.ipn.util.BaseUrlContants;
 import com.example.erick.homedashboard.com.ipn.util.RetrofitClient;
+import com.google.gson.Gson;
 
 import java.util.ArrayList;
 
@@ -37,7 +38,7 @@ public class NotaController extends AppCompatActivity {
                 .getClient(BaseUrlContants.NOTAS_URL)
                 .create(NotasApiService.class);
 
-        consumeService(service.obtenerListaNotas());
+        consumeService(service.obtenerListaNotas(14));
 
         recyclerView = (RecyclerView) findViewById(R.id.recyclerview_notas_id);
         listaNotasAdapter = new NotasAdapter(this);
@@ -53,6 +54,7 @@ public class NotaController extends AppCompatActivity {
             @Override
             public void onResponse(Call<NotasResponse> call, Response<NotasResponse> response) {
                 if(response.isSuccessful()) {
+                    Log.e(TAG, " onResponseSuccess: " + new Gson().toJson(response));
                     ArrayList<Nota> responseList = response.body().getAjaxResult();
                     Log.e(TAG, " List: " + response.body().getAjaxResult());
                     Log.e(TAG, " onMessage: " + response.message());

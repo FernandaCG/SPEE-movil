@@ -13,21 +13,27 @@ import com.example.erick.homedashboard.com.ipn.pagos.controller.PagoController;
 public class PagoService extends AppCompatActivity implements View.OnClickListener{
 
     private CardView pagosCard;
-    private CardView notasCard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-
+        pagosCard = findViewById(R.id.pagos_card_id);
         pagosCard.setOnClickListener(this);
-        notasCard.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
         Intent intent;
 
+        switch (v.getId()){
+            case R.id.pagos_card_id:
+                intent = new Intent(this, PagoController.class);
+                startActivity(intent);
+                break;
+            default:
+                break;
+        }
     }
 }
