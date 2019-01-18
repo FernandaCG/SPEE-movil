@@ -28,6 +28,7 @@
             <LinearLayout
                 android:orientation="vertical"
                 android:layout_width="match_parent"
+                android:layout_gravity="center"
                 android:layout_height="match_parent">
 
                 <android.support.design.widget.TextInputLayout
@@ -76,15 +77,6 @@
                     android:layout_marginTop="25dp"
                     android:layout_width="300dp"
                     android:layout_height="wrap_content" />
-                <TextView
-                    android:id="@+id/registrarse_id"
-                    android:layout_marginTop="30dp"
-                    android:layout_gravity="center"
-                    android:textSize="18dp"
-                    android:gravity="center"
-                    android:layout_width="300dp"
-                    android:layout_height="wrap_content"
-                    android:text="¿No tienes una cuenta? crea una aquí"/>
             </LinearLayout>
         </ScrollView>
     </LinearLayout>

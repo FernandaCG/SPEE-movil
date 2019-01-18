@@ -19,7 +19,7 @@ public class PagoService extends AppCompatActivity implements View.OnClickListen
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        pagosCard = findViewById(R.id.pagos_card_id);
+        pagosCard = findViewById(R.id.add_queja_id);
         pagosCard.setOnClickListener(this);
     }
 
@@ -28,7 +28,7 @@ public class PagoService extends AppCompatActivity implements View.OnClickListen
         Intent intent;
 
         switch (v.getId()){
-            case R.id.pagos_card_id:
+            case R.id.add_queja_id:
                 intent = new Intent(this, PagoController.class);
                 startActivity(intent);
                 break;

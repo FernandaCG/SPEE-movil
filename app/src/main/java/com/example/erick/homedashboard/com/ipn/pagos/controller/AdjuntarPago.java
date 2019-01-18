@@ -1,12 +1,15 @@
 package com.example.erick.homedashboard.com.ipn.pagos.controller;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.provider.MediaStore;
 import android.support.design.widget.TextInputLayout;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
@@ -46,6 +49,8 @@ public class AdjuntarPago extends AppCompatActivity {
     private Button pagar;
     private String mediaPath;
     private String[] mediaColumns = { MediaStore.Video.Media._ID };
+    private String[] galleryPermissions = {Manifest.permission.READ_EXTERNAL_STORAGE, Manifest.permission.WRITE_EXTERNAL_STORAGE};
+
 
 
 
@@ -103,34 +108,38 @@ public class AdjuntarPago extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        try {
-            if (requestCode == 0 && resultCode == RESULT_OK &&  data != null) {
-                Toast.makeText(this, "Ingrese Folio", Toast.LENGTH_LONG).show();
-                Uri selectedImage = data.getData();
-                String[] filePathColumn = {MediaStore.Images.Media.DATA};
+        int result = ContextCompat.checkSelfPermission(this, Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        if ( result == PackageManager.PERMISSION_GRANTED) {
 
-                Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
-                assert cursor != null;
-                cursor.moveToFirst();
+            try {
+                if (requestCode == 0 && resultCode == RESULT_OK && data != null) {
+                    Toast.makeText(this, "Ingrese Folio", Toast.LENGTH_LONG).show();
+                    Uri selectedImage = data.getData();
+                    String[] filePathColumn = {MediaStore.Images.Media.DATA};
 
-                int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
-                mediaPath = cursor.getString(columnIndex);
+                    Cursor cursor = getContentResolver().query(selectedImage, filePathColumn, null, null, null);
+                    assert cursor != null;
+                    cursor.moveToFirst();
 
-                Bitmap bm = BitmapFactory.decodeFile(mediaPath);
-                ByteArrayOutputStream baos = new ByteArrayOutputStream();
-                bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                    int columnIndex = cursor.getColumnIndex(filePathColumn[0]);
+                    mediaPath = cursor.getString(columnIndex);
 
-                imagenPago.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
-                cursor.close();
+                    Bitmap bm = BitmapFactory.decodeFile(mediaPath);
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bm.compress(Bitmap.CompressFormat.JPEG, 100, baos);
 
-                validatePago(imagenPago,folio);
+                    imagenPago.setImageBitmap(BitmapFactory.decodeFile(mediaPath));
+                    cursor.close();
 
-            } else {
-                Toast.makeText(this, "No se ha capturado un archivo", Toast.LENGTH_LONG).show();
+                    validatePago(imagenPago, folio);
+
+                } else {
+                    Toast.makeText(this, "No se ha capturado un archivo", Toast.LENGTH_LONG).show();
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+                Toast.makeText(this, "Ha sucedido un error ", Toast.LENGTH_LONG).show();
             }
-        } catch (Exception e) {
-            e.printStackTrace();
-            Toast.makeText(this, "Ha sucedido un error ", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -140,6 +149,7 @@ public class AdjuntarPago extends AppCompatActivity {
             pagar.setVisibility(View.VISIBLE);
             return Boolean.TRUE;
         } else {
+            Toast.makeText(this, "Ha sucedido un error ", Toast.LENGTH_LONG).show();
             return Boolean.FALSE;
         }
     }
@@ -155,8 +165,9 @@ public class AdjuntarPago extends AppCompatActivity {
                 .getClient(BaseUrlContants.CARGAR_PAGOS_URL)
                 .create(CargarPagoApi.class);
         Call<ResponseBody> call = service.agreagarPago(fileToUpload, filename,idServicio, folio, idUsuario);
-        System.out.println(call.request());
+        System.out.println( "==========>>>" + call);
         call.enqueue(new Callback<ResponseBody>() {
+
             @Override
             public void onResponse(Call<ResponseBody> call, Response<ResponseBody> response) {
                 ResponseBody serverResponse = response.body();

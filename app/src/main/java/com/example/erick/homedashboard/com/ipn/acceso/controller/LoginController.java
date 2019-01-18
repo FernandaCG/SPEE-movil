@@ -69,9 +69,7 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
         mProgressView = findViewById(R.id.login_progress);
         mLoginFormView = findViewById(R.id.login_form);
         loginButton = findViewById(R.id.btn_login);
-        registrar = findViewById(R.id.registrarse_id);
         loginButton.setOnClickListener(this);
-        registrar.setOnClickListener(this);
 
 
         retrofit = new Retrofit.Builder()
@@ -92,10 +90,6 @@ public class LoginController extends AppCompatActivity implements View.OnClickLi
                 } else {
                     showLoginError(getString(R.string.error_network));
                 }
-                break;
-            case R.id.registrarse_id:
-                intent = new Intent(this, RegistrarController.class);
-                startActivity(intent);
                 break;
             default:
                 break;
